@@ -38,7 +38,7 @@
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-house-door-fill" aria-current="page" href="Controlador?menu=Home" target="myFrame"> Home</a>
+                            <a class="nav-link bi bi-house-door-fill" aria-current="page" href="javascript:location.reload()"> Home</a>
                             
                         </li>
                         
@@ -68,7 +68,7 @@
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-file-post-fill" href="Controlador?menu=Factura&accion=Listar" target="myFrame"> Factura</a>
+                            <a class="nav-link bi bi-file-post-fill" href="#"> Factura</a>
                             
                         </li>
                         

@@ -115,21 +115,6 @@ insert into TipoProducto (codigoMarca, descripcion) values (1,'Accesorios');
 insert into TipoProducto (codigoMarca, descripcion) values (2,'Cables');
 insert into TipoProducto (codigoMarca, descripcion) values (3,'Impresoras');
 
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Fernando','Rodrigues',23113221);
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Lius','Lopez',94873625);
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Gerson','Matta',23113221);
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Emilio','Estrada',82736492);
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Javier','Monzon',21231232);
-
-INSERT INTO FormasDePago (formaDePago) VALUES ('Efectivo');
-INSERT INTO FormasDePago (formaDePago) VALUES ('Tarjeta');
-INSERT INTO FormasDePago (formaDePago) VALUES ('Cheque');
-INSERT INTO FormasDePago (formaDePago) VALUES ('Deposito');
-
-INSERT INTO Factura (fechaFactura, codigoCliente, codigoFormaPago) VALUES ('2021-03-03',1,1);
-INSERT INTO Factura (fechaFactura, codigoCliente, codigoFormaPago) VALUES ('2022-04-03',2,3);
-INSERT INTO Factura (fechaFactura, codigoCliente, codigoFormaPago) VALUES ('2020-05-03',3,2);
-
 select * from TipoProducto;
 select * from Usuario;
 select * from TipoProducto;

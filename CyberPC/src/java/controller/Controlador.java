@@ -6,35 +6,81 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.*;
+import modelDAO.*;
 
 
 public class Controlador extends HttpServlet {
     
-
+    Factura fac = new Factura();
+    FacturaDAO facDAO = new FacturaDAO();
+    Producto producto = new Producto();
+    ProductoDAO productoDAO = new ProductoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException{
         
         String menu = request.getParameter("menu");
         String accion = request.getParameter("accion");
         
         if (menu.equals("Principal")) {
-            
-            request.getRequestDispatcher("Principal.jsp").forward(request, response);
-            
+            request.getRequestDispatcher("Principal.jsp").forward(request, response);  
+        }else if (menu.equals("Factura")) {
+            try {
+                if (accion.equals("Listar")) {
+                    List listaFacturas = facDAO.listar();
+                    request.setAttribute("facturas", listaFacturas);
+                }else if (accion.equals("Agregar")) {
+                    String fechaFactura = request.getParameter("dtFechaFactura");
+                    int codigoCliente = Integer.parseInt(request.getParameter("txtCodigoCliente"));
+                    int codigoFormaPago = Integer.parseInt(request.getParameter("txtCodigoFormaPago"));
+                    fac.setFechaFactura(new SimpleDateFormat("yyyy-MM-dd").parse(fechaFactura));
+                    fac.setCodigoCliente(codigoCliente);
+                    fac.setCodigoFormaPago(codigoFormaPago);
+                    facDAO.agregar(fac);
+                    request.getRequestDispatcher("Controlador?menu=Factura&accion=Listar").forward(request, response);
+                }
+            } catch (ParseException ex) {
+                ex.printStackTrace();
+            }
+            request.getRequestDispatcher("Factura.jsp").forward(request, response);
         }else if (menu.equals("Home")) {
-            
             request.getRequestDispatcher("PrincipalCarousel.jsp").forward(request, response);
+        }else if(menu.equals("Producto")){
+            
+                switch(accion){
+                case "Listar" :
+                    List listaProductos = productoDAO.listar();
+                    request.setAttribute("productos", listaProductos);
+                    
+                break;
+                case "Agregar":
+                   String nombre = request.getParameter("txtNombreProducto");
+                   String stock = request.getParameter("txtStock");
+                   String precio = request.getParameter("txtPrecio");
+                   String codigoTipoProducto = request.getParameter("txtTipoProducto");
+                   producto.setNombreProducto(nombre);
+                   producto.setStock(Integer.parseInt(stock));
+                   producto.setPrecio(Integer.parseInt(precio));
+                   producto.setCodigoTipoProducto(Integer.parseInt(codigoTipoProducto));
+                   productoDAO.Agregar(producto);
+                   request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+                  
+                break;
+                
+                
+                }
+             
+            request.getRequestDispatcher("Producto.jsp").forward(request, response);
             
         }
-
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

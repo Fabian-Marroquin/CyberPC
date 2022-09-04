@@ -38,13 +38,13 @@
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-house-door-fill" aria-current="page" href="Controlador?menu=Home" target="myFrame" > Home</a>
+                            <a class="nav-link bi bi-house-door-fill" aria-current="page" href="Controlador?menu=Home" target="myFrame"> Home</a>
                             
                         </li>
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-bag-check-fill" href="#"> Productos</a>
+                           <a class="nav-link bi bi-file-post-fill" href="Controlador?menu=Product&accion=Listar" target="myFrame"> Factura</a>
                             
                         </li>
                         
@@ -68,7 +68,7 @@
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-file-post-fill" href="#"> Factura</a>
+                            <a class="nav-link bi bi-file-post-fill" href="Controlador?menu=Factura&accion=Listar" target="myFrame"> Factura</a>
                             
                         </li>
                         

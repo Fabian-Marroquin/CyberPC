@@ -62,7 +62,7 @@
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-tags-fill" href="Controlador?menu=Marca&accion=Listar" target="myFrame"> Marcas</a>
+                            <a class="nav-link bi bi-tags-fill" href="Controlador?menu=Marcas&accion=Listar" target="myFrame"> Marcas</a>
                             
                         </li>
                         

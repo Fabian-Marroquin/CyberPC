@@ -23,7 +23,7 @@
                 
                 <div class="card-body">
                     
-                    <form action="Controlador?menu=FormaPago" method="POST">
+                    <form action="Controlador?menu=FormaDePago" method="POST">
                         
                         
                         <div class="form-group">

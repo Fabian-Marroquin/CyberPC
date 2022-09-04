@@ -28,6 +28,10 @@ public class Controlador extends HttpServlet {
             
             request.getRequestDispatcher("Principal.jsp").forward(request, response);
             
+        }else if (menu.equals("Home")) {
+            
+            request.getRequestDispatcher("PrincipalCarousel.jsp").forward(request, response);
+            
         }
 
         

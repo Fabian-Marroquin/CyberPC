@@ -23,6 +23,14 @@ public class Controlador extends HttpServlet {
     FacturaDAO facDAO = new FacturaDAO();
     Producto producto = new Producto();
     ProductoDAO productoDAO = new ProductoDAO();
+    Clientes cliente = new Clientes();
+    ClientesDAO clienteDAO = new ClientesDAO();
+    FormaDePago fdp = new FormaDePago();
+    FormaDePagoDAO fdpDAO = new FormaDePagoDAO();
+    TipoProducto tProducto = new TipoProducto();
+    TipoProductoDAO tProductoDAO = new TipoProductoDAO();
+    TipoUsuario tUsuario = new TipoUsuario();
+    TipoUsuarioDAO tUsuarioDAO = new TipoUsuarioDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
@@ -80,6 +88,70 @@ public class Controlador extends HttpServlet {
              
             request.getRequestDispatcher("Producto.jsp").forward(request, response);
             
+        }else if (menu.equals("Cliente")) {
+            switch (accion) {
+                case "Listar":
+                    List listaClientes = clienteDAO.listar();
+                    request.setAttribute("clientes", listaClientes);
+                    break;
+                case "Agregar":
+                    String nombreCliente = request.getParameter("txtNombreCliente");
+                    String apellidoCliente = request.getParameter("txtApellidoCliente");
+                    String telefonoCliente = request.getParameter("txtTelefonoCliente");
+                    cliente.setNombreCliente(nombreCliente);
+                    cliente.setApellidoCliente(apellidoCliente);
+                    cliente.setTelefonoCliente(telefonoCliente);
+                    clienteDAO.agregar(cliente);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+                    break;
+            }
+            request.getRequestDispatcher("Clientes.jsp").forward(request, response);
+        }else if (menu.equals("FormaDePago")) {
+            switch (accion) {
+                case "Listar":
+                    List listaFDP = fdpDAO.listar();
+                    request.setAttribute("formas", listaFDP);
+                    break;
+                case "Agregar":
+                    String tipFP = request.getParameter("txtFormaDePago");
+                    fdp.setFormaDePago(tipFP);
+                    fdpDAO.agregar(fdp);
+                    request.getRequestDispatcher("Controlador?menu=FormaDePago&accion=Listar").forward(request, response);
+                    break;
+            }
+            request.getRequestDispatcher("FormaPago.jsp").forward(request, response);
+        }else if (menu.equals("TipoProducto")) {
+            switch (accion) {
+                case "Listar":
+                    List listaTProducto = tProductoDAO.listar();
+                    request.setAttribute("tipoProductos", listaTProducto);
+                    break;
+                case "Agregar":
+                    String marca = request.getParameter("txtMarca");
+                    String descripcion = request.getParameter("txtDescripcion");
+                    tProducto.setCodigoMarca(Integer.parseInt(marca));
+                    tProducto.setDescripcion(descripcion);
+                    tProductoDAO.agregar(tProducto);
+                    request.getRequestDispatcher("Controlador?menu=TipoProducto&accion=Listar").forward(request, response);
+                    break;
+            }
+            
+            request.getRequestDispatcher("TipoProducto.jsp").forward(request, response);
+        }else if (menu.equals("TipoUsuario")) {
+            switch (accion) {
+                case "Listar":
+                    List listaTUsuario = tUsuarioDAO.listar();
+                    request.setAttribute("tipoUsuarios", listaTUsuario);
+                    break;
+                case "Agregar":
+                    String tipUsuario = request.getParameter("txttipoUsuario");
+                    tUsuario.setTipoUsuario(tipUsuario);;
+                    tUsuarioDAO.agregar(tUsuario);
+                    request.getRequestDispatcher("Controlador?menu=TipoUsuario&accion=Listar").forward(request, response);
+                    break;
+            }
+            
+            request.getRequestDispatcher("TipoUsuario.jsp").forward(request, response);
         }
     }
 

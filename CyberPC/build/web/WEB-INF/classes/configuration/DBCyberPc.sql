@@ -67,7 +67,7 @@ create table FormasDePago(
 
 create table Cliente(
     codigoCliente int not null auto_increment,
-    nombreCliete varchar(150) not null,
+    nombreCliente varchar(150) not null,
     apellidoCliente varchar(150) not null,
     telefonoCliente varchar(8) not null,
     primary key PK_codigoCliente (codigoCliente)
@@ -115,11 +115,11 @@ insert into TipoProducto (codigoMarca, descripcion) values (1,'Accesorios');
 insert into TipoProducto (codigoMarca, descripcion) values (2,'Cables');
 insert into TipoProducto (codigoMarca, descripcion) values (3,'Impresoras');
 
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Fernando','Rodrigues',23113221);
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Lius','Lopez',94873625);
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Gerson','Matta',23113221);
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Emilio','Estrada',82736492);
-INSERT INTO Cliente (nombreCliete, apellidoCliente, telefonoCliente) VALUES ('Javier','Monzon',21231232);
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Fernando','Rodrigues',23113221);
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Lius','Lopez',94873625);
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Gerson','Matta',23113221);
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Emilio','Estrada',82736492);
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Javier','Monzon',21231232);
 
 INSERT INTO FormasDePago (formaDePago) VALUES ('Efectivo');
 INSERT INTO FormasDePago (formaDePago) VALUES ('Tarjeta');

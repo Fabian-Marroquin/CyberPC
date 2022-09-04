@@ -43,8 +43,14 @@
                         </li>
                         
                         <li class="nav-item">
+
+                            <a class="nav-link bi bi-file-text-fill" href="Controlador?menu=TipoUsuario&accion=Listar" target="myFrame"> Tipo Usuario</a>
+
+                        </li>
+                        
+                        <li class="nav-item">
                             
-                           <a class="nav-link bi bi-file-post-fill" href="Controlador?menu=Product&accion=Listar" target="myFrame"> Factura</a>
+                           <a class="nav-link bi bi-file-post-fill" href="Controlador?menu=Producto&accion=Listar" target="myFrame"> Producto</a>
                             
                         </li>
                         
@@ -74,13 +80,13 @@
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-credit-card-2-back-fill" href="#"> Formas de Pago</a>
+                            <a class="nav-link bi bi-credit-card-2-back-fill" href="Controlador?menu=FormaDePago&accion=Listar" target="myFrame"> Formas de Pago</a>
                             
                         </li>
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-person-check-fill" href="#" > Clientes</a>
+                            <a class="nav-link bi bi-person-check-fill" href="Controlador?menu=Cliente&accion=Listar" target="myFrame" > Clientes</a>
                             
                         </li>
                         

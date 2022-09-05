@@ -1,45 +1,51 @@
 <%-- 
-    Document   : FormaPago
-    Created on : 30/08/2022, 10:40:34 PM
-    Author     : Windows 10
+    Document   : Marca
+    Created on : 3/09/2022, 05:39:48 PM
+    Author     : gpinz
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    
     <head>
-        
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link rel=stylesheet type="text/css" href="css/styleVistas.css">
-        
-        <title>Formas de Pago</title>
-        
+
+        <title>Marca</title>
+
     </head>
-    
+
     <body>
-        
-        <div class="d-flex">
-            
+
+        <div class ="d-flex">
+
             <div class="card col-sm-4">
-                
+
                 <div class="card-body">
                     
-                    <h2 class="text-center">Formas de Pago</h2>
+                    <h2 class="text-center">Marcas</h2>
                     <br><br><br>
-                    
-                    <form action="Controlador?menu=FormaDePago" method="POST">
-                        
+
+                    <form action="Controlador?menu=Marcas" method="POST">
+
                         <div class="form-group">
                             
-                            <label>Tipo de Pago:</label>
-                            <input type="next" name="txtFormaDePago" class="form-control">
+                            <label>Nombre Marca:</label>
+                            <input type="text" name="txtNombreMarca" class="form-control">  
                             
                         </div>
-                        
+
+                        <div class="form-group">
+                            
+                            <label>Numero Contacto:</label>
+                            <input type="text" name="txtNumeroContacto" class="form-control"> 
+                            
+                        </div>
+
                         <button type="submit" name="accion" value="Agregar" class="bi bi-person-plus-fill btn btn-info"> Agregar</button>
                         <button type="submit" name="accion" value="Actualizar" class="bi bi-person-check-fill btn btn-success"> Actualizar</button>
                         
@@ -49,39 +55,40 @@
                         -->
                         
                     </form>
-                    
+
                 </div>
-                
+
             </div>
-            
+
             <div class="col-sm-8">
-                
+
                 <table class="table table-hover">
-                    
+
                     <thead>
                         
                         <br>
-                        
-                        <tr>
-                            
-                            <td class="table-primary text-center">CÓDIGO</td>
-                            <td class="table-primary text-center">TIPO DE PAGO</td>
-                            <td class="table-primary text-center">ACCIONES</td>
-                            
-                        </tr>
-                        
-                    </thead>
-                    
-                    <tbody>
-                       
-                        <c:forEach var="formaPago" items="${formas}">
-                        
-                        <tr>
-                            
-                            <td class="text-center table-light">${formaPago.getCodigoFormaPago()}</td>
-                            <td class="text-center table-light">${formaPago.getFormaDePago()}</td>
-                            
 
+                        <tr>
+
+                            <td class="table-primary text-center">CÓDIGO</td>
+                            <td class="table-primary text-center">NOMBRE MARCA</td>
+                            <td class="table-primary text-center">NÚMERO CONTACTO</td>
+                            <td class="table-primary text-center">ACCIONES</td>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>  
+                        
+                        <c:forEach var="marca" items="${marcas}">
+
+                        <tr>
+                            
+                            <td class="text-center table-light">${marca.getCodigoMarca()}</td>
+                            <td class="text-center table-light">${marca.getNombreMarca()}</td>
+                            <td class="text-center table-light">${marca.getNumeroContacto()}</td>
+                            
                             <td class="text-center table-light">
                                 
                                 <a class="btn btn-warning bi bi-pencil-fill" href=""> Editar</a>
@@ -89,16 +96,16 @@
                                 
                             </td>
                             
-                        </tr>
-                        
+                        </tr> 
+
                         </c:forEach>
-                        
+
                     </tbody>
                     
                 </table>
                 
             </div>
-            
+
         </div>
         
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

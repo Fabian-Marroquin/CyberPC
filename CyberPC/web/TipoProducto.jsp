@@ -1,23 +1,25 @@
 <%-- 
     Document   : TipoProducto
     Created on : 30/08/2022, 10:37:59 PM
-    Author     : TheSn
+    Author     : Gerson Matta
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    
     <head>
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-        <link rel=stylesheet type="text/css" href="css/styleCategorias.css">
+        <link rel=stylesheet type="text/css" href="css/styleVistas.css">
         
         <title>Tipo De Producto</title>
         
     </head>
+    
     <body>
         
         <div class="d-flex">
@@ -56,11 +58,12 @@
             </div>
             
             <div class="col-sm-8" style="background-color: #F5F5F5">
-                <table class="table table-hover table-bordered table-hove" style="border: black 2.5px solid; background-color: #E5E5E5"> 
+                
+                <table class="table table-hover table-bordered table-hover" style="border: black 2.5px solid; background-color: #E5E5E5"> 
                     
                     <thead>
                         
-                    <br>
+                        <br>
                         
                         <tr>
                             

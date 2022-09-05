@@ -62,13 +62,13 @@
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-tags-fill" href="#"> Marcas</a>
+                            <a class="nav-link bi bi-tags-fill" href="Controlador?menu=Marcas&accion=Listar" target="myFrame"> Marcas</a>
                             
                         </li>
                         
                         <li class="nav-item">
                             
-                            <a class="nav-link bi bi-file-text-fill" href="#"> Detalle de Factura</a>
+                            <a class="nav-link bi bi-file-text-fill" href="Controlador?menu=DetalleFactura&accion=Listar" target="myFrame"> Detalle de Factura</a>
                             
                         </li>
                         

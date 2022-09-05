@@ -1,7 +1,7 @@
 <%-- 
-    Document   : FormaPago
-    Created on : 30/08/2022, 10:40:34 PM
-    Author     : Windows 10
+    Document   : detalleFactura
+    Created on : 04-sep-2022, 12:32:37
+    Author     : dennis perez
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -16,7 +16,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link rel=stylesheet type="text/css" href="css/styleVistas.css">
         
-        <title>Formas de Pago</title>
+        
+        <title>Detalles De Facturas</title>
         
     </head>
     
@@ -28,15 +29,29 @@
                 
                 <div class="card-body">
                     
-                    <h2 class="text-center">Formas de Pago</h2>
+                    <h2 class="text-center">Detalles De Facturas</h2>
                     <br><br><br>
                     
-                    <form action="Controlador?menu=FormaDePago" method="POST">
+                    <form action="Controlador?menu=DetalleFactura" method="POST">
                         
                         <div class="form-group">
                             
-                            <label>Tipo de Pago:</label>
-                            <input type="next" name="txtFormaDePago" class="form-control">
+                            <label>Detalles:</label>
+                            <input type="text" name="txtDetalles" class="form-control">
+                            
+                        </div>
+
+                        <div class="form-group">
+                            
+                            <label>Codigo Factura:</label>
+                            <input type="text" name="txtCodigoFactura" class="form-control">
+                            
+                        </div>
+
+                        <div class="form-group">
+                            
+                            <label>Codigo Producto:</label>
+                            <input type="text" name="txtCodigoProducto" class="form-control">
                             
                         </div>
                         
@@ -53,7 +68,7 @@
                 </div>
                 
             </div>
-            
+
             <div class="col-sm-8">
                 
                 <table class="table table-hover">
@@ -65,7 +80,9 @@
                         <tr>
                             
                             <td class="table-primary text-center">CÓDIGO</td>
-                            <td class="table-primary text-center">TIPO DE PAGO</td>
+                            <td class="table-primary text-center">DETALLES</td>
+                            <td class="table-primary text-center">COD. FACTURA</td>
+                            <td class="table-primary text-center">COD. PRODUCTO</td>
                             <td class="table-primary text-center">ACCIONES</td>
                             
                         </tr>
@@ -73,26 +90,27 @@
                     </thead>
                     
                     <tbody>
-                       
-                        <c:forEach var="formaPago" items="${formas}">
                         
-                        <tr>
+                        <c:forEach var="detalleFactura" items="${detallesfac}">
                             
-                            <td class="text-center table-light">${formaPago.getCodigoFormaPago()}</td>
-                            <td class="text-center table-light">${formaPago.getFormaDePago()}</td>
-                            
-
-                            <td class="text-center table-light">
+                            <tr>
                                 
-                                <a class="btn btn-warning bi bi-pencil-fill" href=""> Editar</a>
-                                <a class="btn btn-danger bi bi-trash-fill" href=""> Eliminar</a>
+                                <td class="text-center table-light">${detalleFactura.getCodigoDetalleFac()}</td>
+                                <td class="text-center table-light">${detalleFactura.getDetalles()}</td>
+                                <td class="text-center table-light">${detalleFactura.getCodigoFactura()}</td>
+                                <td class="text-center table-light">${detalleFactura.getCodigoProducto()}</td>
                                 
-                            </td>
+                                <td class="text-center table-light">
+                                    
+                                    <a class="btn btn-warning bi bi-pencil-fill" href="">Editar</a>
+                                    <a class="btn btn-danger bi bi-trash-fill" href="">Eliminar</a>
+                                    
+                                </td>
+                                
+                            </tr>
                             
-                        </tr>
-                        
                         </c:forEach>
-                        
+                            
                     </tbody>
                     
                 </table>
@@ -100,11 +118,11 @@
             </div>
             
         </div>
-        
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-        
+
     </body>
     
 </html>

@@ -1,8 +1,7 @@
 drop database if exists DBCyberPC;
 create database DBCyberPC;
 
-Use    DBCyberPC;
-
+Use DBCyberPC;
 
 Create table Empleado(
 	codigoEmpleado int not null auto_increment,
@@ -93,6 +92,13 @@ create table DetalleFactura(
     constraint PK_DetalleFactura_Productos foreign key (codigoProducto) references Productos (codigoProducto)
 );
 
+insert into Empleado (nombresEmpleado, apellidoEmpleado, DPIEmpleado) values ('Gerson Aarón', 'Matta Aguilar', '1234567891011');
+insert into Empleado (nombresEmpleado, apellidoEmpleado, DPIEmpleado) values ('Mynor Alejandro', 'Mogue Godoy', '1234567891011');
+
+insert into Marcas (nombreMarca, numeroContacto) values ('Asus','12345678');
+insert into Marcas (nombreMarca, numeroContacto) values ('Lenovo','12345678');
+insert into Marcas (nombreMarca, numeroContacto) values ('Dell','12345678');
+
 insert into TipoUsuario (tipoUsuario) values ('Trabajador');
 insert into TipoUsuario (tipoUsuario) values ('Administrador');
 insert into TipoUsuario (tipoUsuario) values ('Jefe');
@@ -101,11 +107,7 @@ insert into Usuario ( codigoTipoUsuario, nombreUsuario, contrasena) values (1,'a
 insert into Usuario ( codigoTipoUsuario, nombreUsuario, contrasena) values (2,'jcarlos','222');
 insert into Usuario ( codigoTipoUsuario, nombreUsuario, contrasena) values (3,'gmatta','223');
 
-insert into Marcas (nombreMarca, numeroContacto) values ('Asus','12345678');
-insert into Marcas (nombreMarca, numeroContacto) values ('Lenovo','12345678');
-insert into Marcas (nombreMarca, numeroContacto) values ('Dell','12345678');
-
-insert into TipoProducto (codigoMarca, descripcion) values (1,'Computadoras');
+insert into TipoProducto (codigoMarca, descripcion) values (1,'Laptops');
 insert into TipoProducto (codigoMarca, descripcion) values (2,'Teléfonos');
 insert into TipoProducto (codigoMarca, descripcion) values (3,'Televisores');
 insert into TipoProducto (codigoMarca, descripcion) values (1,'Audio');
@@ -115,27 +117,26 @@ insert into TipoProducto (codigoMarca, descripcion) values (1,'Accesorios');
 insert into TipoProducto (codigoMarca, descripcion) values (2,'Cables');
 insert into TipoProducto (codigoMarca, descripcion) values (3,'Impresoras');
 
-INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Fernando','Rodrigues',23113221);
-INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Lius','Lopez',94873625);
-INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Gerson','Matta',23113221);
-INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Emilio','Estrada',82736492);
-INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Javier','Monzon',21231232);
+INSERT INTO Productos(nombreProducto, stock,precio,codigoTipoProducto) VALUES('ASUS G713RM-LL170W',10,15000,1);
+INSERT INTO Productos(nombreProducto, stock,precio,codigoTipoProducto) VALUES('DELL G15 5515',15,14000,1);
+INSERT INTO Productos(nombreProducto, stock,precio,codigoTipoProducto) VALUES('RCA con Pantalla Tactil',20,1000,3);
+INSERT INTO Productos(nombreProducto, stock,precio,codigoTipoProducto) VALUES('MONITOR LED SAMSUNG 23.5"',17,3700,3);
 
 INSERT INTO FormasDePago (formaDePago) VALUES ('Efectivo');
 INSERT INTO FormasDePago (formaDePago) VALUES ('Tarjeta');
 INSERT INTO FormasDePago (formaDePago) VALUES ('Cheque');
 INSERT INTO FormasDePago (formaDePago) VALUES ('Deposito');
 
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Fernando','Rodrigues',23113221);
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Lius','Lopez',94873625);
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Gerson','Matta',23113221);
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Emilio','Estrada',82736492);
+INSERT INTO Cliente (nombreCliente, apellidoCliente, telefonoCliente) VALUES ('Javier','Monzon',21231232);
+
 INSERT INTO Factura (fechaFactura, codigoCliente, codigoFormaPago) VALUES ('2021-03-03',1,1);
 INSERT INTO Factura (fechaFactura, codigoCliente, codigoFormaPago) VALUES ('2022-04-03',2,3);
 INSERT INTO Factura (fechaFactura, codigoCliente, codigoFormaPago) VALUES ('2020-05-03',3,2);
 
-INSERT INTO Productos(nombreProducto, stock,precio,codigoTipoProducto) VALUES('RGA',10,1,1);
-INSERT INTO Productos(nombreProducto, stock,precio,codigoTipoProducto) VALUES('DELL',50,2,1);
-INSERT INTO Productos(nombreProducto, stock,precio,codigoTipoProducto) VALUES('RCA con Pantalla Tactil',40,1,1);
-INSERT INTO Productos(nombreProducto, stock,precio,codigoTipoProducto) VALUES('Azus',100,1,1);
-
-select * from TipoProducto;
-select * from Usuario;
-select * from TipoProducto;
-select * from Productos;
+INSERT INTO DetalleFactura( detalles, codigoFactura, codigoProducto) VALUES('Compra de dos productos', 1, 1);
+INSERT INTO DetalleFactura( detalles, codigoFactura, codigoProducto) VALUES('Compra de tres productos', 1, 1);
+INSERT INTO DetalleFactura( detalles, codigoFactura, codigoProducto) VALUES('Compra de cuatro productos', 1, 1);
